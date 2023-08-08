@@ -12,7 +12,7 @@ Horários: terça e quintas, 8:30 às 10:30.
 
 |  # | Data             | Assunto          |
 |---:|------------------|:-----------------|
-| 1 | 2023-08-08 Ter | Apresentação da disciplina ([slides](https://docs.google.com/presentation/d/1WdplyZ6wsKBhwXgbpqu2CRxdbqtAIRMms2YLH2NCHBg/edit?usp=sharing)) |
+| 1 | 2023-08-08 Ter | Apresentação da disciplina ([slides](https://docs.google.com/presentation/d/1X1sTmubX6V6IseI3uiyhvVa2Chp8ZpDqS8jEYLXX7Vc/edit?usp=sharing)) |
 | 2 | 2023-08-10 Qui | Introdução a Sistemas Operacionais ([vídeo](https://youtu.be/DmxuID5tytE), [slide](./aulas/01_introducao/1_introduction.pdf))  |
 | 3 | 2023-08-15 Ter | Introdução a Sistemas Operacionais ([vídeo](https://youtu.be/7KsHiozYhv4), [slide](https://drive.google.com/file/d/1BQPPeJmC0gmnA5f-5WTr5sE5s3Sq8nUt/view?usp=sharing)) |
 | 4 | 2023-08-17 Qui | Criação de processos ([vídeo](https://youtu.be/NZRuGDsEruA), [exemplos](./aulas/05_fork))    |
