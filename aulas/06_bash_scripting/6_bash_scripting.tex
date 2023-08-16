@@ -1,0 +1,635 @@
+% Created 2021-11-07 dom 22:10
+% Intended LaTeX compiler: pdflatex
+\documentclass[xcolor=dvipsnames, 10pt, presentation,aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setbeamertemplate{footline}[frame number]
+\usecolortheme[named=BrickRed]{structure}
+\setbeamertemplate{navigation symbols}{}
+\usepackage[american, english]{babel}
+\usepackage{url} \urlstyle{sf}
+\useinnertheme{circles}
+\let\alert=\structure
+\usepackage{wrapfig}
+\usepackage{fancyvrb}
+\newcommand{\bashcmd}[1]{\textcolor{White}{\colorbox{Sepia}{\texttt{#1}}}}
+\logo{ \includegraphics[height=1cm,width=1cm,keepaspectratio]{logo_inf}    \includegraphics[height=1cm,width=1cm,keepaspectratio]{logo_ufsm} }
+\usetheme{Madrid}
+\author{João Vicente Ferreira Lima}
+\date{2021/2}
+\title{Bash Scripting}
+\subtitle{Operating System Practice}
+\institute[UFSM]{Universidade Federal de Santa Maria \\ \url{jvlima@inf.ufsm.br} \\ \url{http://www.inf.ufsm.br/~jvlima}}
+\hypersetup{
+ pdfauthor={João Vicente Ferreira Lima},
+ pdftitle={Bash Scripting},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 24.5.1 (Org mode 8.3.4)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\frame<handout:0>
+{
+  \frametitle{Outline}
+  \tableofcontents
+}
+
+\makeatletter
+\AtBeginSubsection[]
+{
+  \frame<handout:0>
+  {
+    \frametitle{Outline}
+    \tableofcontents[current,currentsubsection]
+  }
+}
+\makeatother
+
+\section{Bash Scripting}
+\label{sec:org39a313b}
+\subsection{Arithmetic Operations}
+\label{sec:org55f1e2f}
+\begin{frame}[label={sec:org5d02e79},fragile]{Arithmetic operations}
+ \begin{block}{}
+\begin{verbatim}
+#!/bin/bash
+# Counting to 11 in 10 different ways.
+
+n=1; echo -n "$n "
+
+let "n = $n + 1"   # let "n = n + 1"  also works.
+echo -n "$n "
+
+\end{verbatim}
+\end{block}
+\pause
+\begin{alertblock}{No floating point}
+Bash does not understand floating point arithmetic. It treats numbers
+containing a decimal point as strings.
+\end{alertblock}
+\end{frame}
+\begin{frame}[label={sec:org715b9c8},fragile]{Arithmetic operations}
+ \begin{block}{}
+\begin{verbatim}
+: $((n = $n + 1))
+#  ":" necessary because otherwise Bash attempts
+#+ to interpret "$((n = $n + 1))" as a command.
+echo -n "$n "
+
+(( n = n + 1 ))
+#  A simpler alternative to the method above.
+echo -n "$n "
+
+n=$(($n + 1))
+echo -n "$n "
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org6d51783},fragile]{Arithmetic operations}
+ \begin{block}{}
+\begin{verbatim}
+: $[ n = $n + 1 ]
+#  ":" necessary because otherwise Bash attempts
+#+ to interpret "$[ n = $n + 1 ]" as a command.
+#  Works even if "n" was initialized as a string.
+echo -n "$n "
+
+n=$[ $n + 1 ]
+#  Works even if "n" was initialized as a string.
+#* Avoid this type of construct, since it is obsolete and nonportable.
+echo -n "$n "
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org0a7df23},fragile]{Arithmetic operations}
+ \begin{block}{}
+\begin{verbatim}
+# Now for C-style increment operators.
+let "n++"          # let "++n"  also works.
+echo -n "$n "
+
+(( n++ ))          # (( ++n ))  also works.
+echo -n "$n "
+
+: $(( n++ ))       # : $(( ++n )) also works.
+echo -n "$n "
+
+: $[ n++ ]         # : $[ ++n ] also works
+echo -n "$n "
+
+exit 0
+\end{verbatim}
+\end{block}
+\end{frame}
+\subsection{Variables}
+\label{sec:orgadc84a1}
+\begin{frame}[label={sec:orgcc303ab}]{Internal variables}
+Builtin variables:
+\begin{itemize}
+\item \bashcmd{\$BASH} path to the Bash itself
+\item \bashcmd{\$BASH\_VERSION} version of Bash
+\item \bashcmd{\$EDITOR} the default editor
+\item \bashcmd{\$HOME} home directory
+\item \bashcmd{\$PATH} path to binaries
+\item \bashcmd{\$PWD} working directory
+\item \bashcmd{\$UID} user ID number
+\end{itemize}
+Positional variables:
+\begin{itemize}
+\item \bashcmd{\$?} exit status  of a command
+\item \bashcmd{\$\$} process ID (PID)
+\end{itemize}
+\end{frame}
+\begin{frame}[label={sec:orgb441af1},fragile]{Random}
+ \bashcmd{RANDOM} is a internal Bash function that returns a
+\emph{pseudorandom} integer in 0 - 32767.
+\begin{block}{}
+\begin{verbatim}
+RANDOM=$$      #  Seeds the random number generator from PID
+               #+ of script.
+
+for i in $(seq 1 10)
+do
+    echo $RANDOM
+done
+\end{verbatim}
+\end{block}
+\end{frame}
+\subsection{Strings}
+\label{sec:org95552b8}
+\begin{frame}[label={sec:org794198d},fragile]{Manipulating strings}
+ \alert{String length} - \texttt{\$\{\#string\}}
+\begin{block}{}
+\begin{verbatim}
+stringZ=abcABC123ABCabc
+
+echo ${#stringZ}     # 15
+\end{verbatim}
+\end{block}
+\alert{Substring extraction} - \texttt{\$\{string:position:length\}}
+\begin{block}{}
+\begin{verbatim}
+stringZ=abcABC123ABCabc
+echo ${stringZ:7}            # 23ABCabc
+echo ${stringZ:7:3}          # 23A
+                             # Three characters of substring.
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org740c489},fragile]{Manipulating strings}
+ \begin{block}{Random password}
+\begin{verbatim}
+if [ -n "$1" ]  #  If command-line argument present,
+then            #+ then set start-string to it.
+  str0="$1"
+else            #  Else use PID of script as start-string.
+  str0="$$"
+fi
+POS=2  # Starting from position 2 in the string.
+LEN=8  # Extract eight characters.
+
+str1=$( echo "$str0" | md5sum | md5sum )
+#  Doubly scramble     ^^^^^^   ^^^^^^
+
+randstring="${str1:$POS:$LEN}"
+
+echo "$randstring"
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:orgb2b7ff4},fragile]{Manipulating strings}
+ \alert{Substring removal} - \texttt{\$\{string\#substring\}} deletes shortest match,
+ \texttt{\$\{string\#\#substring\}} deletes longest match.
+\begin{block}{}
+\begin{verbatim}
+stringZ=abcABC123ABCabc
+#       |----|          shortest
+#       |----------|    longest
+
+echo ${stringZ#a*C}      # 123ABCabc
+# Strip out shortest match between 'a' and 'C'.
+
+echo ${stringZ##a*C}     # abc
+# Strip out longest match between 'a' and 'C'.
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org6aa6262},fragile]{Manipulating strings}
+ \alert{Substring replacement} - \texttt{\$\{string/substring/replacement\}}, replace first
+ \emph{match} of \texttt{\$substring} with \texttt{\$replacement}.
+
+\alert{Substring replacement} - \texttt{\$\{string//substring/replacement\}}, replace all
+ matches of \texttt{\$substring} with \texttt{\$replacement}.
+\begin{block}{}
+\begin{verbatim}
+stringZ=abcABC123ABCabc
+
+echo ${stringZ/abc/xyz}  # xyzABC123ABCabc
+              # Replaces first match of 'abc' with 'xyz'.
+
+echo ${stringZ//abc/xyz} # xyzABC123ABCxyz
+              # Replaces all matches of 'abc' with # 'xyz'.
+\end{verbatim}
+\end{block}
+\end{frame}
+\subsection{Parameter substitution}
+\label{sec:orgeeea523}
+\begin{frame}[label={sec:org8e9e604},fragile]{Parameter substitution}
+ Manipulating and/or expanding variables:
+\begin{itemize}
+\item \texttt{\$\{parameter\}}
+\item \texttt{\$\{parameter-default\}} if parameter not set, use \texttt{default}.
+\end{itemize}
+\begin{block}{}
+\begin{verbatim}
+echo ${username-`whoami`}
+# Echoes the result of `whoami`, if variable $username 
+# is still unset.
+
+DEFAULT_FILENAME=generic.data
+filename=${1-$DEFAULT_FILENAME}
+#  if parameter $1 is not specified
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:orgcc5968a},fragile]{Parameter substitution}
+ \texttt{\$\{parameter=default\}} - If parameter not set, set it to \emph{default}.
+\begin{block}{}
+\begin{verbatim}
+echo ${var=abc}   # abc
+echo ${var=xyz}   # abc
+# $var had already been set to abc, so it did not change.
+\end{verbatim}
+\end{block}
+\end{frame}
+\subsection{Loops}
+\label{sec:org77be454}
+\begin{frame}[label={sec:org9f1571e},fragile]{for}
+ \begin{block}{Parameterized file list}
+\begin{verbatim}
+#!/bin/bash
+
+filename="*txt"
+
+for file in $filename
+do
+ echo "Contents of $file"
+ echo "---"
+ cat "$file"
+ echo
+done
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:orgf818c64},fragile]{for}
+ \begin{block}{File expansion}
+\begin{verbatim}
+#!/bin/bash
+# Globbing = filename expansion.
+
+for file in *
+#           ^  Bash performs filename expansion
+#+             on expressions that globbing recognizes.
+do
+    if [ -d "$file" ]; then
+        echo "$file is a directory"
+    fi
+    if [ -f "$file" ]; then
+        echo "$file is a regular file."
+    fi
+done
+
+exit 0
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org1490080},fragile]{for}
+ \begin{block}{Function}
+\begin{verbatim}
+generate_list ()
+{
+  echo "one two three"
+}
+
+for word in $(generate_list)  # Let "word" grab output of function.
+do
+  echo "$word"
+done
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:orge6e5fc3},fragile]{for}
+ \begin{block}{Counting to ten}
+\begin{verbatim}
+# Using "seq" ...
+for a in `seq 10`
+do
+  echo -n "$a "
+done  
+
+echo; echo
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:orgb085198},fragile]{for}
+ \begin{block}{Counting to ten}
+\begin{verbatim}
+# Now, let's do the same, using C-like syntax.
+
+LIMIT=10
+# Double parentheses, and naked "LIMIT"
+for ((a=1; a <= LIMIT ; a++))
+do
+  echo -n "$a "
+done
+
+echo; echo
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org08060e2},fragile]{while}
+ \begin{block}{While to ten}
+\begin{verbatim}
+#!/bin/bash
+
+var0=0
+LIMIT=10
+
+while [ "$var0" -lt "$LIMIT" ]
+do
+  echo -n "$var0 "        # -n suppresses newline.
+
+  var0=$(($var0+1))
+done
+
+echo
+exit 0
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:orgc48139c},fragile]{while}
+ \begin{block}{Test to end}
+\begin{verbatim}
+#!/bin/bash
+                           # Equivalent to:
+while [ "$var1" != "end" ] # while test "$var1" != "end"
+do
+  echo "Input variable #1 (end to exit) "
+  read var1                   # Not 'read $var1' (why?).
+  echo "variable #1 = $var1"  # Need quotes because of "#" . . .
+  # If input is 'end', echoes it here.
+  echo
+done  
+
+exit 0
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org84bf145},fragile]{while}
+ \begin{block}{C-style while}
+\begin{verbatim}
+LIMIT=10      # 10 iterations.
+((a = 1))      # a=1
+
+while (( a <= LIMIT ))   #  Double parentheses,
+do                       #+ and no "$" preceding variables.
+  echo -n "$a "
+  ((a += 1))             # let "a+=1"
+done
+
+echo
+exit 0
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org631e4e6},fragile]{while}
+ \begin{block}{While and pipes}
+\begin{verbatim}
+#!/bin/bash
+
+ps aux | \
+while read user pid cpu mem vsz rss tty stat start time command
+do
+    echo $pid $mem $command
+done | sort -n -r -k2
+
+# sorts by memory usage
+
+exit 0
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:orgd2531e5},fragile]{while}
+ \begin{block}{Reading files}
+\begin{verbatim}
+#!/bin/bash
+
+IFS=':' # internal field separator
+
+while read account password uid gid gecos directory shell
+do
+    echo $uid $account
+done < /etc/passwd
+
+exit 0
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org83d089f},fragile]{until}
+ This construct tests for a condition at the top of a loop, and keeps
+looping as long as that condition is \emph{false} (opposite of \emph{while loop}).
+\begin{block}{}
+\begin{verbatim}
+#!/bin/bash
+LIMIT=10
+var=0
+
+until (( var > LIMIT ))
+do
+  echo -n "$var "
+  (( var++ ))
+done    # 0 1 2 3 4 5 6 7 8 9 10 
+
+
+exit 0
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:orgcaa410f},fragile]{Loop control}
+ The \bashcmd{break} and \bashcmd{continue} loop control commands
+correspond exactly to their counterparts in other programming
+languages.
+\begin{block}{}
+\begin{verbatim}
+LIMIT=19  # Upper limit
+echo "Printing Numbers 1 through 20 (but not 3 and 11)."
+a=0
+while [ $a -le "$LIMIT" ]
+do
+ a=$(($a+1))
+
+ if [ "$a" -eq 3 ] || [ "$a" -eq 11 ]; then
+   continue
+ fi
+
+ echo -n "$a "   # This will not execute for 3 and 11.
+done 
+\end{verbatim}
+\end{block}
+\end{frame}
+
+\subsection{Functions}
+\label{sec:orgc87dd95}
+\begin{frame}[label={sec:orge5eeb0e},fragile]{Functions}
+ \begin{block}{Simple functions}
+\begin{verbatim}
+fun () { echo "This is a function"; echo; }
+
+foo() {
+    echo "foo"
+}
+
+fun
+foo
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org1c52026},fragile]{Functions}
+ \begin{block}{Arguments (1/2)}
+\begin{verbatim}
+#!/bin/bash
+DEFAULT=default 
+func2 () {
+   if [ -z "$1" ]; then
+     echo "-Parameter #1 is zero length.-" 
+   else
+     echo "-Parameter #1 is \"$1\".-"
+   fi
+   variable=${1-$DEFAULT} 
+   echo "variable = $variable"
+   if [ "$2" ]; then
+     echo "-Parameter #2 is \"$2\".-"
+   fi
+
+   return 0
+}
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:orgb20e73e},fragile]{Functions}
+ \begin{block}{Arguments (2/2)}
+\begin{verbatim}
+#!/bin/bash
+echo "Two parameters passed."   
+func2 first second  # Called with two params
+echo
+
+echo "\"\" \"second\" passed."
+func2 "" second  # Called with zero-length first parameter
+echo             # and ASCII string as a second one.
+
+exit 0
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org6161f02},fragile]{Functions}
+ Functions return a value, called an \emph{exit status}. This is analogous to
+the exit status returned by a command.
+\begin{block}{Exit status}
+\begin{verbatim}
+
+E_PARAM_ERR=250 # if no parameter
+foo () {
+   if [ -z "$1" ]; then
+       return $E_PARAM_ERR
+   fi
+   return 0
+}
+
+foo ; res=$?
+if [ "$res" -eq $E_PARAM_ERR ]; then
+    echo "Missing parameter ..."
+fi
+exit 0
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org4985c66},fragile]{Functions}
+ In contrast to C, a Bash variable declared inside a function is local
+ONLY if declared as such.
+\begin{block}{Global or local}
+\begin{verbatim}
+#!/bin/bash
+func () {
+  local loc_var=23       # Declared as local variable.
+  global_var=999         # Not declared as local.
+ }  
+func
+
+echo "\"loc_var\" outside function = $loc_var"
+
+echo "\"global_var\" outside function = $global_var"
+
+exit 0
+\end{verbatim}
+\end{block}
+\end{frame}
+\subsection{Arrays}
+\label{sec:orgb03630b}
+\begin{frame}[label={sec:orged92a1b},fragile]{Arrays}
+ \begin{block}{Sparse arrays}
+\begin{verbatim}
+#!/bin/bash
+
+area[11]=23
+area[51]=UFOs
+
+echo -n "area[11] = "
+echo ${area[11]}    #  {curly brackets} needed.
+
+echo "Contents of area[51] are ${area[51]}."
+
+# Contents of uninitialized array variable print blank (null variable).
+echo -n "area[43] = "
+echo ${area[43]}
+echo "(area[43] unassigned)"
+
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org49e7789},fragile]{Arrays}
+ \begin{block}{}
+\begin{verbatim}
+#!/bin/bash
+# Quoting permits embedding whitespace within individual 
+#+ array elements.
+array2=( [0]="first element" [1]="second element"
+         [3]="fourth element" )
+
+echo ${array2[0]}   # first element
+echo ${array2[1]}   # second element
+echo ${array2[2]}   # Skipped in initialization, and therefore null.
+echo ${array2[3]}   # fourth element
+echo ${#array2[0]}  # 13    (length of first element)
+echo ${#array2[*]}  # 3     (number of elements in array)
+
+exit
+\end{verbatim}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org1d0b056}]{}
+\end{frame}
+\end{document}
