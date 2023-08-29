@@ -8,6 +8,12 @@ Ementa oficial: https://www.ufsm.br/ementario/disciplinas/elc1035/
 
 Horários: terça e quintas, 8:30 às 10:30.
 
+## Trabalhos
+
+| Prazo | Peso | Asssunto   |
+|:---|----:|:------------------|
+| **11/09/2023** | `1,0` | [Ordenação em Bash](./atividades/01_ordenacao) |
+
 ## Aulas e trabalhos
 
 |  # | Data             | Assunto          |
@@ -18,7 +24,7 @@ Horários: terça e quintas, 8:30 às 10:30.
 | 4 | 2023-08-17 Qui | Basic Shell Commands ([vídeo](https://youtu.be/c8mYuwKTCfU), [slides](./aulas/2_basic_commands.pdf)) |
 | 5 | 2023-08-22 Ter | Introduction to Bash ([vídeo](https://youtu.be/3CL-qslLXWM), [slides](./aulas/4_introduction_to_bash.pdf))    |
 | 6 | 2023-08-24 Qui | Bash Scripting ([vídeo](https://youtu.be/wSRAZ6yzzVw), [slides](./aulas/06_bash_scripting/6_bash_scripting.pdf)) |
-| 7 | 2023-08-29 Ter |  |
+| 7 | 2023-08-29 Ter | [Prática - Ordenação em Bash](./atividades/01_ordenacao) |
 | 8 | 2023-08-31 Qui | |
 | 9 | 2023-09-05 Ter | Regular Expressions ([vídeo](https://youtu.be/7ubpXR9Sqr8), [slides](./aulas/07_regex/7_regex.pdf))  |
 | - | 2023-09-07 Qui | **Feriado** |

@@ -1,0 +1,10 @@
+aalves|Ana Mendes Alves|inf2006|54
+flima|Francisco Barbosa Lima|inf2005|20
+abarbosa|Antonio Alves Barbosa|inf2004|5
+fcampos|Francisco Rezende Campos|inf2001|54
+lmartins|Luiz Novaes Martins|inf2006|46
+pribeiro|Paulo Cavalcanti Ribeiro|inf2003|10
+ggomes|Gabriel Freitas Gomes|inf2006|99
+jpereira|Jose Moura Pereira|inf2002|26
+frodrigues|Francisco Barros Rodrigues|inf2002|94
+mmonteiro|Maria Barbosa Monteiro|inf2004|75
