@@ -25,8 +25,8 @@ Horários: terça e quintas, 8:30 às 10:30.
 | 5 | 2023-08-22 Ter | Introduction to Bash ([vídeo](https://youtu.be/3CL-qslLXWM), [slides](./aulas/4_introduction_to_bash.pdf))    |
 | 6 | 2023-08-24 Qui | Bash Scripting ([vídeo](https://youtu.be/wSRAZ6yzzVw), [slides](./aulas/06_bash_scripting/6_bash_scripting.pdf)) |
 | 7 | 2023-08-29 Ter | [Prática - Ordenação em Bash](./atividades/01_ordenacao) |
-| 8 | 2023-08-31 Qui | [Introdução em Docker](./aulas/03_docker) |
-| 9 | 2023-09-05 Ter | Regular Expressions ([vídeo](https://youtu.be/7ubpXR9Sqr8), [slides](./aulas/07_regex/7_regex.pdf))  |
+| 8 | 2023-08-31 Qui | Regular Expressions ([vídeo](https://youtu.be/7ubpXR9Sqr8), [slides](./aulas/07_regex/7_regex.pdf)) |
+| 9 | 2023-09-05 Ter |  [Introdução em Docker](./aulas/03_docker) |
 | - | 2023-09-07 Qui | **Feriado** |
 | 10 | 2023-09-12 Ter | Introduction to Python ([vídeo](https://youtu.be/m6SRGKjEoH8), [slides](./aulas/10_python/10_introduction_to_python.pdf)) |
 | 11 | 2023-09-14 Qui | |
