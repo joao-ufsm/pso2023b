@@ -1,6 +1,6 @@
 #+TITLE: Introduction to Python
-#+SUBTITLE: Operating System Practice
-#+DATE: 2021/2
+#+SUBTITLE: ELC1035 - Prática em Sistemas Operacionais
+#+DATE: 2023/2
 #+AUTHOR: João Vicente Ferreira Lima
 #+EMAIL: jvlima@inf.ufsm.br
 #+OPTIONS: H:3 num:t toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
@@ -61,6 +61,18 @@
 
 * Introduction
 ** Basics
+*** Monty Python
+#+ATTR_LATEX: :width 0.8\textwidth
+[[./monty-python.jpg]]
+*** SPAM
+#+ATTR_LATEX: :width 0.6\textwidth
+[[./spam.jpg]]
+*** XKCD Python
+#+ATTR_LATEX: :width 0.4\textwidth
+[[./python.png]]
+*** Python Environment
+#+ATTR_LATEX: :width 0.5\textwidth
+[[./python_environment.png]]
 *** Hello
 #+begin_src python 
 #!/usr/bin/env python3
