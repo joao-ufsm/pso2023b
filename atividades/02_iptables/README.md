@@ -2,7 +2,7 @@
 
 ## Deadline
 
-Prazo: **18/09/2023 (Qua)** pelo link do GitHub [https://classroom.github.com/a/sJOPbUkn](https://classroom.github.com/a/sJOPbUkn).
+Prazo: **20/09/2023 (Qua)** pelo link do GitHub [https://classroom.github.com/a/sJOPbUkn](https://classroom.github.com/a/sJOPbUkn).
 
 Você deve escolher seu nome na lista de alunos. Em seguida, o GitHub irá criar um repositório deste trabalho em seu usuário.
 
