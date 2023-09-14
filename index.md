@@ -30,9 +30,9 @@ Horários: terça e quintas, 8:30 às 10:30.
 | 9 | 2023-09-05 Ter | [Prática - Análise de Log IPTables](./atividades/02_iptables) |
 | - | 2023-09-07 Qui | **Feriado** |
 | 10 | 2023-09-12 Ter | Introduction to Python ([vídeo](https://youtu.be/m6SRGKjEoH8), [slides](./aulas/10_python/10_introduction_to_python.pdf)) |
-| 11 | 2023-09-14 Qui | |
+| 11 | 2023-09-14 Qui | Python Scripting ([vídeo](https://youtu.be/afhYrwvBFt0), [slides](./aulas/11_python_scripting/11_python_scripting.pdf))  |
 | 12 | 2023-09-19 Ter | |
-| 13 | 2023-09-21 Qui | Python Scripting ([vídeo](https://youtu.be/afhYrwvBFt0), [slides](./aulas/12_python_scripting/12_python_scripting.pdf)) |
+| 13 | 2023-09-21 Qui | |
 | 14 | 2023-09-26 Ter | Python System Programming ([vídeo](https://youtu.be/HvmboVMLYns), [slides](./aulas/13_python_system/13_system_programming.pdf)) |
 | 15 | 2023-09-28 Qui | |
 | 16 | 2023-10-03 Ter | Introdução em Redes ([vídeo](https://youtu.be/UY0h2OuoVEg),[slides](./aulas/15_redes/15_redes_slides.pdf)) |
