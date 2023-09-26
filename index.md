@@ -12,8 +12,9 @@ Horários: terça e quintas, 8:30 às 10:30.
 
 | Prazo | Peso | Asssunto   |
 |:---|----:|:------------------|
-| **20/09/2023** | `1,0` | [Análise de Log IPTables](./atividades/02_iptables) |
-| **11/09/2023** | `1,0` | [Ordenação em Bash](./atividades/01_ordenacao) |
+| **03/10/2023** | `1,0` | [Servidor Web](./atividades/03_web) |
+| ~~20/09/2023~~ | `1,0` | [Análise de Log IPTables](./atividades/02_iptables) |
+| ~~11/09/2023~~ | `1,0` | [Ordenação em Bash](./atividades/01_ordenacao) |
 
 ## Aulas e trabalhos
 
