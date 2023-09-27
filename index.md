@@ -35,13 +35,13 @@ Horários: terça e quintas, 8:30 às 10:30.
 | 12 | 2023-09-19 Ter | [OpenStack do NCC](https://docs.google.com/presentation/d/1Qrnc63V-HxzRsO_M9j5dmEwGsMo4djDw_worFTU3dB0/edit?usp=sharing) |
 | 13 | 2023-09-21 Qui | Python System Programming ([vídeo](https://youtu.be/HvmboVMLYns), [slides](./aulas/13_python_system/13_system_programming.pdf)) |
 | 14 | 2023-09-26 Ter | [Prática - Servidor Web](./atividades/03_web) |
-| 15 | 2023-09-28 Qui | [Prática - ????](./atividades/04) |
-| 16 | 2023-10-03 Ter | Introdução em Redes ([vídeo](https://youtu.be/UY0h2OuoVEg),[slides](./aulas/15_redes/15_redes_slides.pdf)) |
-| 17 | 2023-10-05 Qui | [Introdução em Docker](./aulas/03_docker) |
+| - | 2023-09-28 Qui | **Sem aula** |
+| 16 | 2023-10-03 Ter | [Prática - ????](./atividades/04) |
+| 17 | 2023-10-05 Qui | Introdução em Redes ([vídeo](https://youtu.be/UY0h2OuoVEg),[slides](./aulas/15_redes/15_redes_slides.pdf)) |
 | 18 | 2023-10-10 Ter | [Introdução a TDD](./aulas/17_tdd)  |
 | - | 2023-10-12 Qui | **Feriado** |
 | 19 | 2023-10-17 Ter | [Serviços Docker](./aulas/19_compose/) |
-| 20 | 2023-10-19 Qui | |
+| 20 | 2023-10-19 Qui | [Introdução em Docker](./aulas/03_docker)|
 | - | 2023-10-24 Ter | **JAI** |
 | - | 2023-10-26 Qui | **JAI** |
 | - | 2023-10-31 Ter | |
