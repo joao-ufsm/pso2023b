@@ -19,7 +19,7 @@ services:
   web:
     image: nginx
     ports:
-      - "8080:80"
+      - "80:80"
     environment:
       - NGINX_HOST=foo.com
       - NGINX_PORT=80
@@ -41,7 +41,7 @@ services:
   web:
     image: nginx
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ./:/usr/share/nginx/html
     environment:
@@ -55,7 +55,7 @@ services:
   web:
     image: nginx
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - www_data:/usr/share/nginx/html
     environment:
@@ -89,7 +89,7 @@ services:
     volumes:
       - wordpress_data:/var/www/html
     ports:
-      - "8080:80"
+      - "80:80"
     restart: always
     environment:
       WORDPRESS_DB_HOST: db

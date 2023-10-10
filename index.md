@@ -38,15 +38,15 @@ Horários: terça e quintas, 8:30 às 10:30.
 | - | 2023-09-28 Qui | **Sem aula** |
 | 16 | 2023-10-03 Ter |**Paralisação** |
 | 17 | 2023-10-05 Qui | [Introdução em Docker](./aulas/03_docker) |
-| 18 | 2023-10-10 Ter | Introdução em Redes ([vídeo](https://youtu.be/UY0h2OuoVEg),[slides](./aulas/15_redes/15_redes_slides.pdf)) |
+| 18 | 2023-10-10 Ter | [Serviços Docker](./aulas/19_compose/) |
 | - | 2023-10-12 Qui | **Feriado** |
-| 19 | 2023-10-17 Ter | [Serviços Docker](./aulas/19_compose/) |
-| 20 | 2023-10-19 Qui | [Prática - ????](./atividades/04)|
+| 19 | 2023-10-17 Ter | [Prática - ????](./atividades/04) |
+| 20 | 2023-10-19 Qui | [Prática - ????](./atividades/04) |
 | - | 2023-10-24 Ter | **JAI** |
 | - | 2023-10-26 Qui | **JAI** |
 | - | 2023-10-31 Ter | [Introdução a TDD](./aulas/17_tdd) |
 | - | 2023-11-02 Qui | **Feriado** |
-| 21 | 2023-11-07 Ter | |
+| 21 | 2023-11-07 Ter |  Introdução em Redes ([vídeo](https://youtu.be/UY0h2OuoVEg),[slides](./aulas/15_redes/15_redes_slides.pdf)) |
 | 22 | 2023-11-09 Qui | |
 | 23 | 2023-11-14 Ter | |
 | 24 | 2023-11-16 Qui | |
