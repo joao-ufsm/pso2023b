@@ -40,7 +40,7 @@ Horários: terça e quintas, 8:30 às 10:30.
 | 17 | 2023-10-05 Qui | [Introdução em Docker](./aulas/03_docker) |
 | 18 | 2023-10-10 Ter | [Serviços Docker](./aulas/19_compose/) |
 | - | 2023-10-12 Qui | **Feriado** |
-| 19 | 2023-10-17 Ter | [Prática - ????](./atividades/04) |
+| 19 | 2023-10-17 Ter | [Sistemas de Arquivos e Backup](./aulas/21_arquivos)  |
 | 20 | 2023-10-19 Qui | [Prática - ????](./atividades/04) |
 | - | 2023-10-24 Ter | **JAI** |
 | - | 2023-10-26 Qui | **JAI** |
@@ -53,7 +53,7 @@ Horários: terça e quintas, 8:30 às 10:30.
 | 25 | 2023-11-21 Ter | |
 | 26 | 2023-11-23 Qui | |
 | 27 | 2023-11-28 Ter | |
-| 28 | 2023-11-30 Qui | [Sistemas de Arquivos e Backup](./aulas/21_arquivos) |
+| 28 | 2023-11-30 Qui | |
 | 29 | 2023-12-05 Ter | [Build and Debug Programs](./aulas/25_build/) |
 | 30 | 2023-12-07 Qui | **ENTREGA** [Projeto Final](./atividades/final/)  |
 

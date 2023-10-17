@@ -11,6 +11,7 @@ Os níveis de RAID mais populares são:
 - RAID 0 (*striping*) divide blocos de forma circular entre os discos.
 - RAID 1 (*mirroring*) espelha os blocos entre os discos, ou seja, todos são iguais.
 
+[Slides sobre RAID disponíveis aqui.](https://docs.google.com/presentation/d/1-ipoK_3JfJamJXkJ-L-m-Nn26UF1kiurZdOIeVSJgJQ/edit?usp=sharing)
 
 ## Btrfs
 
