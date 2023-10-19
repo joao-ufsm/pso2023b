@@ -41,7 +41,7 @@ Horários: terça e quintas, 8:30 às 10:30.
 | 18 | 2023-10-10 Ter | [Serviços Docker](./aulas/19_compose/) |
 | - | 2023-10-12 Qui | **Feriado** |
 | 19 | 2023-10-17 Ter | [Sistemas de Arquivos e Backup](./aulas/21_arquivos)  |
-| 20 | 2023-10-19 Qui | [Prática - ????](./atividades/04) |
+| 20 | 2023-10-19 Qui | [Prática -  Corretor de trabalhos](./atividades/04_corretor) |
 | - | 2023-10-24 Ter | **JAI** |
 | - | 2023-10-26 Qui | **JAI** |
 | - | 2023-10-31 Ter | [Introdução a TDD](./aulas/17_tdd) |
