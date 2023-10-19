@@ -22,7 +22,7 @@ $ ./t1 < entrada.txt
 O texto é direcionado a entrada padrão (``stdin``) e tem como saída o número de linhas do arquivo texto.
 
 Um exemplo de corretor pode ser conferido abaixo:
-https://l22022b.github.io/t1.html
+- [https://l22022b.github.io/t1.html](https://l22022b.github.io/t1.html)
 
 ## Requisitos
 
