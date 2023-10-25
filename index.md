@@ -1,3 +1,10 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: home
+---
+
 Professor: [João Vicente Ferreira Lima](http://www.inf.ufsm.br/~jvlima).
 
 Contato: jvlima em inf.ufsm.br ou CT/UFSM sala 380 Anexo B.
